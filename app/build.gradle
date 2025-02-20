@@ -1,0 +1,144 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.daon.ps.demo"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+    namespace 'com.daon.ps.demo'
+    buildFeatures {
+        viewBinding true
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    // network
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.9'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.3'
+
+
+    //rxjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+
+    implementation 'androidx.biometric:biometric:1.1.0'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'commons-codec:commons-codec:1.11'
+
+    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+
+//    implementation(name: 'scrypt-1.4.0', ext: 'jar')
+    implementation 'com.nimbusds:srp6a:2.0.2'
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
+
+//    implementation 'com.daon.sdk.fido.client-ktx:com.daon.sdk.fido.client-ktx:4+@aar'
+    implementation 'com.daon.sdk.fido.client:com.daon.sdk.fido.client:4+@aar'
+    implementation 'com.daon.sdk.authenticator:com.daon.sdk.authcommon:4+@aar'
+    implementation 'com.daon.sdk.authenticator:com.daon.sdk.authenticator:4+@aar'
+    implementation 'com.daon.sdk.device:com.daon.sdk.device:4+@aar'
+    implementation 'com.daon.sdk.crypto:com.daon.sdk.crypto:4+@aar'
+
+    // Daon Face
+    // Head movement detection
+    //implementation 'com.daon.sdk.face:com.daon.sdk.face.hmd:5.1+@aar'
+
+    // CLR Liveness
+    //implementation(name:'com.daon.sdk.face.clr-1.6.1', ext:'aar')
+
+    // Remove these dependencies if daon face support is not required
+    implementation 'com.daon.sdk.face:com.daon.sdk.face:5+@aar'
+    implementation 'com.daon.sdk.face.quality:com.daon.sdk.face.quality:3.2.103@aar'
+
+    implementation 'com.daon.sdk.authenticator:com.daon.sdk.faceauthenticator-daon-0205:4+@aar'
+
+    //Passive Liveness
+    implementation 'com.daon.sdk.face.liveness:com.daon.sdk.face.liveness:5+@aar'
+
+
+    // BETA: Medical/surgical face mask detection
+    implementation 'com.daon.sdk.face:com.daon.sdk.face.detector.mask:1.0.10@aar'
+
+    // Used by com.daon.sdk.face.liveness
+    implementation 'org.slf4j:slf4j-android:1.7.12'
+
+    //Matching
+    implementation 'com.daon.sdk.face.matcher:com.daon.sdk.face.matcher:1.3.2@aar'
+    implementation 'com.daon.sdk.face:com.daon.sdk.face.detector:1.2.2@aar'
+    //implementation(name:'com.daon.sdk.crypto-1.0.5', ext:'aar')
+
+    // Remove these dependencies if voice support is not required
+    implementation 'com.daon.sdk.authenticator:com.daon.sdk.voiceauthenticator:4+@aar'
+    implementation(name: 'daon-voice-release', ext: 'aar')
+    implementation(name: 'ogg_encoder-1.0', ext:'aar')
+
+    // Remove these dependencies if palm support is not required
+   // implementation 'com.daon.sdk.authenticator:com.daon.sdk.palmauthenticator:4+@aar'
+
+//    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+//    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+//    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    // CameraX
+    def camerax_version = "1.2.1"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+
+    //needed for 4.8 sdk's
+    implementation 'androidx.preference:preference-ktx:1.2.1'
+
+}
